@@ -3,10 +3,7 @@ function Footer () {
     const styles = {
         textAlign: 'center',
         fontSize: '18px',
-        position: 'absolute',
-        bottom: '0',
-        right: '0',
-        left: '0'
+        marginTop: 'auto'
     }
 
     return (
