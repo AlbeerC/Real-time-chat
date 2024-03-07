@@ -7,14 +7,16 @@ function ChatBox ( {messages, message, setMessage, handleSendMessage} ) {
 
     const auth = useAuth()
 
+    const getUser = auth.getUserFromLocalStorage()
+    const user = getUser ? getUser.displayName || auth.cutDomainFromEmail(getUser?.email) : null
+
     return (
         <section className="chat-box">
-            <div className="messages">
+            <div className='messages'>
                 {messages.map((msg, i) => (
-                    <p key={i}>
-                        <span>{msg.user}:</span> 
-                        {msg.message}
-                    </p>
+                    <div key={i} className={`message-box ${user === msg.user ? 'user-message' : ''}`}>
+                        <p><span>{msg.user}:</span>{msg.message}</p>
+                    </div>
                 ))}
             </div>
 

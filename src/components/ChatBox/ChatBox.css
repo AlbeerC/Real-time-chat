@@ -14,15 +14,38 @@
         padding: 1rem;
         flex: 1;
         overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
         
-        p {
-            margin: 1rem 0;
-            font-family: cursive;
-        }
+        .message-box {
+            background-color: #00000030;
+            max-width: fit-content;
+            padding: 0 1rem;
+            border-radius: 1rem;
 
-        span {
-            font-weight: bold;
-            padding-right: 1rem;
+            p {
+                margin: 1rem 0;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 1.5rem;
+                line-height: 2rem;
+
+                @media (max-width: 480px) {
+                    font-size: 1.3rem;
+                }
+            }
+    
+            span {
+                font-weight: bold;
+                padding-right: 1rem;
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 1.8rem;
+                color: #53fbc0;
+
+                @media (max-width: 480px) {
+                    font-size: 1.6rem;
+                }
+            }
         }
     }
 
@@ -83,4 +106,9 @@
         border-top: 1px solid #ffffff;
         padding: 1rem 0;
     }
+}
+
+.user-message {
+    margin-left: auto;
+    max-width: 70% !important;
 }
