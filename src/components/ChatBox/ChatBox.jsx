@@ -1,6 +1,7 @@
 import './ChatBox.css'
 import { useRef } from 'react'
 import { useAuth } from '../../context/AuthContext'
+import { BsFillSendFill } from "react-icons/bs";
 
 function ChatBox ( {messages, message, setMessage, handleSendMessage} ) {
 
@@ -21,7 +22,7 @@ function ChatBox ( {messages, message, setMessage, handleSendMessage} ) {
                 <div className="form-container">
                     <form onSubmit={handleSendMessage}>
                         <input type="text" value={message} onChange={(e) => setMessage(e.target.value)} placeholder='Escribe tu mensaje' />
-                        <button type='submit'>Enviar</button>
+                        <button type='submit'><BsFillSendFill /></button>
                     </form>
                 </div>
                 :

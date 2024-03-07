@@ -1,18 +1,22 @@
 import './Navbar.css'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
+import { useTheme } from '../../context/ThemeContext'
 import { FaUserAlt } from "react-icons/fa";
+import { FaMoon } from "react-icons/fa";
+import { FaSun } from "react-icons/fa";
 
 function Navbar () {
 
     const auth = useAuth()
+    const theme = useTheme()
 
     const user = auth.getUserFromLocalStorage()
     const isLogged = auth.isLogged
 
     return (
         <header>
-            <Link to='/'><h1>Real time chat</h1></Link>
+            <Link to='/'><h1>AlberChatApp</h1></Link>
             {
             isLogged ?
                 <div className="logged">
@@ -24,6 +28,9 @@ function Navbar () {
                 <Link to='/register'>Registrarse</Link>
                 </div>
             }
+            <button className='theme' onClick={theme.toggleMode}>
+                {theme.darkMode ? <FaMoon /> : <FaSun />}
+            </button>
         </header>
     )
 }

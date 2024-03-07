@@ -50,6 +50,7 @@ function Register () {
             <p className='error-message'>{auth.error}</p>
             <p>Ya tenés una cuenta? <Link to='/login'>Inicia sesión</Link></p>
         </section>
+
     )
 }
 

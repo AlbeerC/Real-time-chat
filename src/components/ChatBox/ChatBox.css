@@ -1,5 +1,5 @@
 .chat-box {
-    background-color: #15154f54;
+    background-color: #89898961;
     height: 80vh;
     width: 60vw;    
     margin: 2rem auto;
@@ -17,7 +17,7 @@
         
         p {
             margin: 1rem 0;
-            max-width: 50vw;
+            font-family: cursive;
         }
 
         span {
@@ -33,7 +33,6 @@
         left: 0;
         right: 0;
         border-top: 2px solid #ffffff;
-        background-color: #000000;
 
         form {
             margin-top: auto;
@@ -42,18 +41,35 @@
     
             input {
                 padding: .5rem 1rem;
-                font-size: 2rem;
+                font-size: 1.7rem;
+                background-color: #89898933;
+                border: none;
+
+                &::placeholder {
+                    padding-left: 1rem;
+                }
+
+                &:focus {
+                    outline: none;
+                }
+
+                @media (max-width: 480px) {
+                    width: 70%;
+                }
             }
     
             button {
-                background-color: #1224ad;
-                color: #ffffff;
+                background-color: #000000de;
                 padding: 1rem;
-                font-size: 1.8rem;
+                font-size: 1.7rem;
                 font-weight: bold;
                 border: none;
                 cursor: pointer;
-                border: 1px solid #ffffff;
+
+                svg {
+                    font-size: 2rem;
+                    color: #ffffff;
+                }
             }
         }
     }

@@ -43,7 +43,7 @@ function ChatLogic () {
 
             setTimeout(async () => {
                 await deleteDoc(docRef)
-            }, 6000)
+            }, 60000)
 
             setMessage('');
         }

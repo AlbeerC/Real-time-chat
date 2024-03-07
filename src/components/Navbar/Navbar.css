@@ -6,16 +6,13 @@ header {
 
     @media (max-width: 768px) {
         flex-direction: column;
+        gap: 2rem;
+        padding: 1rem;
     }
     
     h1 {
         font-size: 3rem;
         font-family: 'Times New Roman', Times, serif;
-        text-transform: uppercase;
-
-        @media (max-width: 768px) {
-            padding-bottom: 1rem;
-        }
     }
 
     .buttons {
@@ -27,7 +24,7 @@ header {
         }
 
         a {
-            background-color: #ffffff;
+            background-color: #89898961;
             font-size: 1.7rem;
             font-weight: bold;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -35,7 +32,6 @@ header {
             margin: 0 1rem;
             border-radius: 1rem;
             cursor: pointer;
-            color: #000000;
 
             @media (max-width: 768px) {
                 margin: 0;
@@ -57,7 +53,7 @@ header {
             gap: .8rem;
 
             svg {
-                border: 1px solid #ffffff;
+                border: 1px solid #000000;
                 border-radius: 50%;
                 padding: .5rem;
                 font-size: 3.5rem;
@@ -65,7 +61,7 @@ header {
         }
 
         button {
-            background-color: #ffffff;
+            background-color: #89898961;
             font-size: 1.7rem;
             font-weight: bold;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -73,8 +69,21 @@ header {
             margin: 0 1rem;
             border-radius: 1rem;
             cursor: pointer;
-            color: #000000;
+            border: none;
         }
     }
 
+    .theme {
+        font-size: 3.5rem;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        color: #ffffff;
+        
+        @media (max-width: 769px) {
+            position: absolute;
+            top: 1.5rem;
+            right: 1rem;
+        }
+    }
 }
