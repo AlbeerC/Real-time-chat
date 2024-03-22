@@ -46,22 +46,25 @@ header {
         justify-content: center;
         gap: 1rem;
 
-        p {
+        .open-modal {
             font-size: 2rem;
             font-weight: bold;
             display: flex;
             align-items: center;
             gap: .8rem;
+            border: none;
+            background-color: transparent;
+            cursor: default;
 
-            svg {
-                border: 1px solid #000000;
+            img {
                 border-radius: 50%;
-                padding: .5rem;
-                font-size: 3.5rem;
+                width: 6rem;
+                height: 6rem;
+                object-fit: cover;
             }
         }
 
-        button {
+        .logout {
             background-color: #89898961;
             font-size: 1.7rem;
             font-weight: bold;

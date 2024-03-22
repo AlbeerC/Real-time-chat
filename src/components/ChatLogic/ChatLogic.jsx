@@ -40,7 +40,7 @@ function ChatLogic () {
             const messageData = {
                 message: message,
                 user: getUserName(),
-                timestamp: serverTimestamp()
+                timestamp: serverTimestamp(),
             }
 
             const docRef = await addDoc(collection(db, 'messages'), messageData)
@@ -49,7 +49,7 @@ function ChatLogic () {
                 await deleteDoc(docRef)
             }, 60000)
 
-            setMessage('');
+            setMessage('')
         }
     }
 

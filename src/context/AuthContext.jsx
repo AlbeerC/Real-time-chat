@@ -1,4 +1,4 @@
-import { auth } from '../firebase/config'
+import { auth, db } from '../firebase/config'
 import { createContext, useContext, useState, useEffect } from 'react'
 import { GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, signInWithRedirect, signOut } from 'firebase/auth'
 
@@ -7,14 +7,17 @@ const AuthContext = createContext()
 function AuthProvider ( {children} ) {
     const [isLogged, setIsLogged] = useState(false)
     const [error, setError] = useState(null)
+    const [profileImage, setProfileImage] = useState('');
 
     useEffect(() => {
-        const storedUser = getUserFromLocalStorage();
+        const storedUser = getUserFromLocalStorage()
         if (storedUser) {
           setIsLogged(true)
+          setProfileImage(storedUser.profileImage || '');
         }
       }, [])
 
+    // Log in and sing up functions  
     const register = async (email, password) => {
         try {
             await createUserWithEmailAndPassword(auth, email, password)
@@ -60,6 +63,7 @@ function AuthProvider ( {children} ) {
         }
     }
 
+    // Get user and localStorage functions
     const getUser = () => {
         const currentUser = auth.currentUser
         if (currentUser) {
@@ -82,6 +86,8 @@ function AuthProvider ( {children} ) {
         localStorage.removeItem('user')
     }
 
+
+    // Other functions
     const cutDomainFromEmail = (email) => {
         const atIndex = email.indexOf('@')
 

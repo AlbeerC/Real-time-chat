@@ -5,14 +5,23 @@ import { useTheme } from '../../context/ThemeContext'
 import { FaUserAlt } from "react-icons/fa";
 import { FaMoon } from "react-icons/fa";
 import { FaSun } from "react-icons/fa";
+import { useState } from 'react';
+import UserProfile from '../UserProfile/UserProfile';
+import userDefaultImage from '../../assets/user.jpg'
 
 function Navbar () {
 
     const auth = useAuth()
     const theme = useTheme()
 
-    const user = auth.getUserFromLocalStorage()
+    const getUser = auth.getUserFromLocalStorage()
+    const user = getUser ? getUser.displayName || auth.cutDomainFromEmail(getUser?.email) : null
     const isLogged = auth.isLogged
+
+    const [isModalOpen, setIsModalOpen] = useState(false)
+
+    const openModal = () => setIsModalOpen(true)
+    const closeModal = () => setIsModalOpen(false)
 
     return (
         <header>
@@ -20,8 +29,11 @@ function Navbar () {
             {
             isLogged ?
                 <div className="logged">
-                    <p><FaUserAlt />{user?.displayName || auth.cutDomainFromEmail(user?.email)}</p>
-                    <button onClick={() => auth.logout()}>Cerrar sesión</button>
+                    <button className='open-modal' onClick={openModal}>
+                        <img src={getUser && getUser.photoURL ? getUser.photoURL : userDefaultImage} alt="user profile image" />
+                        {user}
+                    </button>
+                    <button className='logout' onClick={() => auth.logout()}>Cerrar sesión</button>
                 </div> :
                 <div className="buttons">
                 <Link to='/login'>Iniciar sesión</Link>
@@ -31,6 +43,11 @@ function Navbar () {
             <button className='theme' onClick={theme.toggleMode}>
                 {theme.darkMode ? <FaMoon /> : <FaSun />}
             </button>
+{/*             {
+            isModalOpen ?
+                <UserProfile closeModal={closeModal} user={user}/>
+                : null
+            } */}
         </header>
     )
 }
