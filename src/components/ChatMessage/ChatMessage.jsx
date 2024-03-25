@@ -20,7 +20,7 @@ function ChatMessage ( {msg, handleDeleteMessage, handleEditMessage, editingMess
     return (
         <div className={`message-box ${user === msg.user ? 'user-message' : ''}`}>
             <div className="top">
-                <img src={getUser && getUser.photoURL ? getUser.photoURL : userDefaultImage} alt="user profile image" />
+                <img src={msg.image && msg.image !== null ? msg.image : userDefaultImage } alt="user profile image" />
                 <p className='username'>{msg.user}</p>
                 { user === msg.user || user === "Alber Caminos" ?
                 <div className='functions'>

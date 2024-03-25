@@ -35,12 +35,21 @@ function ChatLogic () {
             const user = auth.getUserFromLocalStorage()
             return user?.displayName || auth.cutDomainFromEmail(user?.email)
         }
+
+        const getProfileImage = () => {
+            const user = auth.getUserFromLocalStorage()
+            if (user && user.photoURL) {
+                return user.photoURL
+            } 
+            return null
+        }
     
         if (message.trim() !== '') {
             const messageData = {
                 message: message,
                 user: getUserName(),
                 timestamp: serverTimestamp(),
+                image: getProfileImage(),
             }
 
             const docRef = await addDoc(collection(db, 'messages'), messageData)
