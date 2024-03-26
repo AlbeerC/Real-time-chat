@@ -16,6 +16,7 @@ a {
   background-color: #000000de;
   color: #ffffff;
   min-height: 100vh;
+  padding-bottom: 3rem;
 
   a {
     color: #ffffff;
@@ -62,7 +63,7 @@ a {
     border: 1px solid #000000;
 
     &::placeholder {
-      color: #000000b3;
+      color: #ffffffa4;
     }
   }
 }
